@@ -1,0 +1,399 @@
+/* Blur effect for modal backdrop */
+.modal-backdrop {
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Search dropdown positioning */
+#searchDropdown {
+    border: 1px solid #ccc;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+#searchDropdown li {
+    cursor: pointer;
+    padding: 8px 12px;
+}
+
+#searchDropdown li:hover {
+    background-color: #f8f9fa;
+}
+
+/* Product cards */
+.card {
+    transition: transform 0.2s;
+    flex: 0 0 250px;  /* Fixed width for sliders */
+    margin-right: 15px;
+    scroll-snap-align: start;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-img-top {
+    height: 150px;
+    object-fit: cover;
+}
+
+/* Icons with counts */
+#wishlistIcon, #cartIcon {
+    font-size: 1.2em;
+}
+
+/* Full-Page Offer Carousel (Full-Screen Coverage) */
+#offersCarousel {
+    position: absolute;
+    top: 56px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1040;
+}
+
+.full-page-img {
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+    color: white;
+}
+
+/* Product Sections and Sliders (Left-Aligned, Horizontal Sliding) */
+.product-section {
+    padding: 40px 0;
+}
+
+.product-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    -ms-overflow-style: none;
+    padding-bottom: 10px;
+    justify-content: flex-start;
+    gap: 15px;
+    padding-left: 15px;
+}
+
+/* Top Deals Grid Layout (multi-row, 4 columns per row) */
+#topDealsSlider {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    overflow-x: visible;
+    scroll-snap-type: none;
+    padding-left: 0;
+}
+
+/* Responsive adjustments for Top Deals */
+@media (max-width: 768px) {
+    #topDealsSlider {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.product-slider::-webkit-scrollbar {
+    height: 8px;
+}
+
+.product-slider::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.product-slider::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.product-slider::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Slider Buttons (for Top Deals) */
+.slider-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.slider-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.slider-btn:hover {
+    background: #0056b3;
+}
+
+.slider-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* Section Titles (Left-Aligned) */
+h2.text-start {
+    text-align: left !important;
+    margin-bottom: 30px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .navbar-nav {
+        text-align: center;
+    }
+    
+    form[style*="width: 40%"] {
+        width: 100% !important;
+        margin: 10px 0;
+    }
+
+    .full-page-img {
+        height: calc(100vh - 70px);
+    }
+
+    .card {
+        flex: 0 0 280px;
+    }
+
+    .carousel-caption {
+        display: block !important;
+        position: absolute;
+        bottom: 20px;
+        left: 10px;
+        right: 10px;
+    }
+
+    .carousel-caption h1 {
+        font-size: 2rem;
+    }
+
+    .product-slider {
+        padding-left: 5px;
+        gap: 10px;
+    }
+
+    .slider-buttons {
+        margin-top: 10px;
+    }
+}
+
+/* Cart Modal Styles (Updated for Smaller Image and Name Beside It) */
+#cartModal .modal-body {
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #dee2e6;
+    gap: 10px;  /* Reduced gap for compact layout */
+}
+
+.cart-item img {
+    width: 40px;  /* Decreased size as requested */
+    height: 40px;
+    object-fit: cover;
+    border-radius: 5px;
+    flex-shrink: 0;  /* Prevent shrinking */
+}
+
+.cart-item-info {
+    flex-grow: 1;
+    margin-left: 10px;  /* Space beside image for name */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cart-item-info h6 {
+    margin: 0 0 2px 0;  /* Tight spacing for name beside image */
+    font-size: 0.95rem;
+}
+
+.cart-item-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.cart-item-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;  /* Tight buttons */
+    min-width: 80px;
+}
+
+.cart-item-actions button {
+    padding: 4px 8px;  /* Smaller buttons */
+    font-size: 0.8rem;
+}
+
+#cartTotal {
+    font-size: 1.25rem;
+    color: #28a745;
+    font-weight: bold;
+}
+
+.modal-footer {
+    border-top: 1px solid #dee2e6;
+    padding: 15px;
+    background-color: #f8f9fa;  /* Light background for total/footer */
+}
+
+/* Wishlist Modal Styles */
+#wishlistModal .modal-body {
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.wishlist-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #dee2e6;
+    gap: 10px;
+}
+
+.wishlist-item img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 5px;
+    flex-shrink: 0;
+}
+
+.wishlist-item-info {
+    flex-grow: 1;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.wishlist-item-info h6 {
+    margin: 0 0 2px 0;
+    font-size: 0.95rem;
+}
+
+.wishlist-item-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.wishlist-item-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 80px;
+}
+
+.wishlist-item-actions button {
+    padding: 4px 8px;
+    font-size: 0.8rem;
+}
+
+#wishlistTotal {
+    font-size: 1.25rem;
+    color: #dc3545;
+    font-weight: bold;
+}
+
+/* Checkout Modal Styles (Payment Form) */
+#checkoutModal .modal-body {
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+#checkoutModal .form-label {
+    font-weight: 500;
+}
+
+#checkoutModal input, #checkoutModal textarea {
+    border-radius: 5px;
+}
+
+#checkoutError {
+    margin-bottom: 15px;
+}
+
+#payNowBtn {
+    min-width: 120px;
+}
+
+/* Footer links */
+footer a {
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+footer a:hover {
+    color: #ffc107 !important;
+}
+
+/* Navbar overlap fix */
+.navbar {
+    z-index: 1050;
+}
+
+#offersCarousel {
+    z-index: 1040;
+}
+
+/* Circular logo */
+.navbar-brand img {
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-brand img:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+}
+
+/* Mobile adjustments for modals */
+@media (max-width: 576px) {
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: center;
+    }
+    
+    .cart-item-info {
+        margin-left: 0;
+        width: 100%;
+        margin-top: 5px;
+    }
+    
+    .cart-item-actions {
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 5px;
+    }
+    
+    #checkoutModal .row > div {
+        margin-bottom: 15px;
+    }
+}
